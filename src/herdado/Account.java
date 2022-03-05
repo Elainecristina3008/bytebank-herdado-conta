@@ -1,6 +1,5 @@
 package herdado;
 
-import com.bytebank.Conta;
 
 public class Account {
     private int agencia;
@@ -8,6 +7,10 @@ public class Account {
     private double saldo;
     private Client titular;
     private static int total; // atributo da Classe,
+
+    public Account(){
+
+    }
 
     public Account(int agencia, int numero){
         Account.total ++;
@@ -78,7 +81,7 @@ public class Account {
 
     }
 
-    public boolean transferir(double valor, Conta destino){
+    public boolean transferir(double valor, Account destino){
         if (this.saldo >= valor){
             this.sacar(valor);
             destino.deposita(valor);
