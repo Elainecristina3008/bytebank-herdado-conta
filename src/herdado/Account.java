@@ -1,10 +1,10 @@
 package herdado;
 
 
-public class Account {
+public abstract class Account {
     private int agencia;
     private int numero;
-    private double saldo;
+    protected double saldo;
     private Client titular;
     private static int total; // atributo da Classe,
 
@@ -64,10 +64,7 @@ public class Account {
         return Account.total;
     }
 
-    public void deposita(double valor){
-
-        this.saldo = this.saldo + valor;
-    }
+    public abstract void deposita(double valor);
 
 
 
@@ -90,4 +87,5 @@ public class Account {
             return false;
         }
     }
+
 }
