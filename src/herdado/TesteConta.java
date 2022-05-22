@@ -3,6 +3,9 @@ package herdado;
 public class TesteConta {
     public static void main(String[] args) {
 
+        ContaCorrente outraConta = null;
+        outraConta.deposita(300.0);
+
         ContaCorrente contaCorrente = new ContaCorrente(1425, 73338);
         contaCorrente.deposita(500.50);
 
