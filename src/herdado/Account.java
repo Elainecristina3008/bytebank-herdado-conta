@@ -68,24 +68,20 @@ public abstract class Account {
 
 
 
-    public boolean sacar(double valor){
-        if (this.saldo >= valor){
-            this.saldo = this.saldo - valor;
-            return true;
-        }else{
-            return false;
+    public void sacar(double valor){
+        if (this.saldo < valor){
+            throw new SaldoInsuficienteException("Saldo em conta: " + this.saldo + ", Valor solicitado: " + valor + ". Saldo insuficiente");
         }
+
+        this.saldo -= valor;
+
 
     }
 
-    public boolean transferir(double valor, Account destino){
-        if (this.saldo >= valor){
-            this.sacar(valor);
-            destino.deposita(valor);
-            return true;
-        }else {
-            return false;
-        }
+
+    public void transferir(double valor, Account destino){
+        this.sacar(valor);
+        destino.deposita(valor);
     }
 
 }
